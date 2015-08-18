@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  
+  "name": "Tab Links",
+  "description": "This extension will open links in new tabs",
+  "version": "1.0",
+     
+  "browser_action": {
+   "default_icon": "icon.png",
+   "default_popup": "popup.html"
+  },
+  "permissions": [
+   "storage",
+   "tabs",
+   "http://*/*",
+   "https://*/*"
+   ]
+}

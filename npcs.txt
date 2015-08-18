@@ -1,0 +1,4 @@
+{"dex": "10", "cha": "10", "name": "michael", "str": "10", "city": "chantilly", "int": "10", "hp": "100", "ocu": "test engineer", "con": "10"}
+{"dex": "10", "cha": "10", "name": "carl", "str": "10", "city": "chantilly", "int": "10", "hp": "100", "ocu": "cop", "con": "10"}
+{"dex": "10", "cha": "10", "name": "kristin", "str": "10", "city": "stirling", "int": "10", "hp": "100", "ocu": "vet", "con": "10"}
+{"dex": "10", "cha": "10", "name": "curtis", "str": "10", "city": "stirling", "int": "10", "hp": "100", "ocu": "cto", "con": "10"}
