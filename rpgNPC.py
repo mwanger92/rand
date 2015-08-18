@@ -8,14 +8,18 @@ def main(argv):
                       help="are you looking for a person")
     parser.add_option("-c", "--city", action="store_true", default=False, dest="place",
                       help="are you looking for a city")
+    parser.add_option("-e", "--edit", action="store_true", default=False, dest="edit",
+                        help="edit your stats")
     (options, args) = parser.parse_args(sys.argv[1:])
 
     if options.people:
         people()
     elif options.place:
         city()
+    elif options.edit:
+        edit()
     else:
-        print "Please use any of the options -p or -c"
+        print "Please use any of the options -p or -c or -e"
 
 def city():
     print "Insert City"
@@ -32,6 +36,21 @@ def city():
         for line in npcs:
             if city in line:
                 print line
+
+def edit():
+    npcs = open('npcs.txt', 'r+')
+    for line in npcs:
+        my_dict = json.loads(line)
+        print my_dict['name']
+    print "Who would you like to edit?"
+    answer = raw_input()
+    npcs = open('npcs.txt', 'r+')
+    for line in npcs:
+        my_dict = json.loads(line)
+        if answer in my_dict['name']:
+            print "What would you like to edit?"
+            stat=raw_input()
+            print stat
 
 def people():
     print "Insert Name"
