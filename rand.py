@@ -1,10 +1,10 @@
-import random
+import random, sys, os
+from shutil import move
 from optparse import OptionParser
 games = []
 f = open("games.txt", "r+")
 for line in f:
     games.append(line)
-print games
 def main(argv):
     parser = OptionParser()
     parser.add_option("-d", "--delete", action="store_true", default=False, dest="delete",
@@ -28,15 +28,29 @@ def pick():
     print games[random.randint(1,len(games))]
 
 def delete():
+    newGames = open ("newGames.txt", "w+")
     print "What game?"
     game = raw_input()
-    print game
+    found = False
+    for g in games:
+        if g == game+"\n":
+            found = True
+        else:
+            newGames.write(g)
+    if found:
+        print game + " was deleted"
+        os.remove("games.txt")
+        move("newGames.txt", "games.txt")
+    else:
+        print game + " not found"
 
 def add():
     print "What game?"
     game = raw_input()
-    games.write(game)
-    games.write("\n")
+    f.write(game)
+    f.write("\n")
 
 def show():
     print games
+
+main(sys.argv[1:])
